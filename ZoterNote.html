@@ -16,8 +16,8 @@
         <script>
 			WL.init({
                 client_id: APP_CLIENT_ID,
-                redirect_uri: http:\\davidlamb.github.io\zoternotecallback.html,
-                scope: "wl.signin",
+                redirect_uri: "http:\\davidlamb.github.io\zoternotecallback.html",
+                scope: ["wl.signin","office.onenote_create","wl.offline_access"],
                 response_type: "token"
             });
             WL.Event.subscribe("auth.login", onLogin);
