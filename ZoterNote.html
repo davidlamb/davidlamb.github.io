@@ -40,6 +40,7 @@
 		  callback: function(response) {
 			  this.d = response;
 			  console.log(this.d);
+			  console.log("submit data")
 			  submitData();
 			  return true;
 		  }
@@ -94,6 +95,7 @@
 	    }
             
 	    function submitData(){
+		console.log("inside submit data")
 		if (zoteroData.d) {
 		    for (var i =0;i<zoteroData.d.length;i++){
 			console.log(zoteroData.d[i]);
