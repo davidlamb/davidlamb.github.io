@@ -40,11 +40,12 @@
 		  callback: function(response) {
 			  this.d = response;
 			  console.log(this.d);
+			  submitData();
 			  return true;
 		  }
 	    }
 	   //for testing remove this line
-	    zoteroData.getData({"ready":true},zoteroData.callback)
+	    
 			
 			
 			
@@ -61,7 +62,7 @@
 	    var session = WL.getSession();
 	    if (session) {
 		$("#info").text("You are currently logged in...");
-		submitData();
+		zoteroData.getData({"ready":true},zoteroData.callback)
 	    }else{
 		$("#info").text("You are currently not logged in...");
 	    }
@@ -73,7 +74,7 @@
 			    $("#info").text("You are currently logged in...");
 			    console.log(session)
 			    submitData();
-			    //zoteroData.getData({"ready":true},zoteroData.callback)
+			    zoteroData.getData({"ready":true},zoteroData.callback)
 		    }else{
 			console.log("Logging In")
 			WL.login({scope:["wl.signin","office.onenote_create","wl.offline_access"]}).then(
@@ -82,7 +83,7 @@
 					console.log(response);
 					console.log(session);
 					$("#info").text("Hello, " + response.first_name + " " + response.last_name + "!");
-					//zoteroData.getData({"ready":true},zoteroData.callback);
+					zoteroData.getData({"ready":true},zoteroData.callback)
 					submitData();
 				},
 				function(response){
@@ -104,30 +105,30 @@
 		}
 
 	    }
-
-            function onLogin () {
-		
-		console.log("OnLogin was finally called...");
-                if (!session.error) {
-                    WL.api({
-                        path: "me",
-                        method: "GET"
-                    }).then(
-                        function (response) {
-                            document.getElementById("info").innerText =
-                                "Hello, " + response.first_name + " " + response.last_name + "!";
-                        },
-                        function (responseFailed) {
-                            document.getElementById("info").innerText =
-                                "Error calling API: " + responseFailed.error.message;
-                        }
-                    );
-                }
-                else {
-                    document.getElementById("info").innerText =
-                        "Error signing in: " + session.error_description;
-                }
-            }
+//
+//            function onLogin () {
+//		
+//		console.log("OnLogin was finally called...");
+//                if (!session.error) {
+//                    WL.api({
+//                        path: "me",
+//                        method: "GET"
+//                    }).then(
+//                        function (response) {
+//                            document.getElementById("info").innerText =
+//                                "Hello, " + response.first_name + " " + response.last_name + "!";
+//                        },
+//                        function (responseFailed) {
+//                            document.getElementById("info").innerText =
+//                                "Error calling API: " + responseFailed.error.message;
+//                        }
+//                    );
+//                }
+//                else {
+//                    document.getElementById("info").innerText =
+//                        "Error signing in: " + session.error_description;
+//                }
+//            }
         </script>                   
                 
     </body>
