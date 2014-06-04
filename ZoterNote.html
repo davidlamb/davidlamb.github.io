@@ -69,7 +69,9 @@
 		    
 		    if (session){
 			    console.log("You are already signed in!")
+			    document.getElementById("info").innerText = "You are currently logged in...";
 			    console.log(session)
+			    submitData();
 			    //zoteroData.getData({"ready":true},zoteroData.callback)
 		    }else{
 			console.log("Logging In")
@@ -80,9 +82,11 @@
 					console.log(session);
 					document.getElementById("info").innerText = "Hello, " + response.first_name + " " + response.last_name + "!";
 					//zoteroData.getData({"ready":true},zoteroData.callback);
+					submitData();
 				},
 				function(response){
 					console.log("Could not connect, status = " + response.status);
+					document.getElementById("info").innerText = "Could not connect, status = " + response.status;
 				});
 		    }
 	    }
