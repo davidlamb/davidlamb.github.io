@@ -11,9 +11,9 @@
         <div>    
 			<h1>Please log into your OneNote/OneDrive account.</h1>
 			<button id="signin">Sign In</button><br /><br />
-			<div id="output">You are not currently signed in.</div>
+			<label id="info"></label>
 		</div>
-        <label id="info"></label>
+        
         <script>
 			  
 			  var zoteroData = {
@@ -59,8 +59,10 @@
 	    signInButton.onclick = signIn;
 	    var session = WL.getSession();
 	    if (session) {
-		document.getElementById("output").innerText = "You are currently logged in...";
+		document.getElementById("info").innerText = "You are currently logged in...";
 		submitData();
+	    }else{
+		document.getElementById("info").innerText = "You are not logged in...";
 	    }
 	    function signIn(){
 		    //console.log(WL.getSession());
@@ -71,7 +73,7 @@
 			    //zoteroData.getData({"ready":true},zoteroData.callback)
 		    }else{
 			console.log("Logging In")
-			WL.login({scope:"wl.signin"}).then(
+			WL.login({scope:["wl.signin","office.onenote_create","wl.offline_access"]}).then(
 				function(response){
 					console.log("Log in successful");
 					console.log(response);
