@@ -105,7 +105,7 @@
 			submitStr += '<br/><p>' + c_i.citation +'</p>';
 			submitStr += '<br/><p>Abstract:</p><br/><p>' + c_i.abstract +'</p>';
 			submitStr += '<br/><p>Notes:</p>';
-			for (var j =0;i<c_i.notesHTML;j++){
+			for (var j =0;j<c_i.notesHTML.length;j++){
 			    submitStr += c_i.notesHTML[j];
 			}
 			submitStr += '</body></html>'
