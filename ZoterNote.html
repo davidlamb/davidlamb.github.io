@@ -16,34 +16,35 @@
         
         <script>
 			  
-			  var zoteroData = {
-				d:null,
-				getData: function(data, callback) { 
-				  var request = document.createTextNode(JSON.stringify(data));
-				  request.addEventListener("ZoterNote-response", function(event) {
-					request.parentNode.removeChild(request);
+	    var zoteroData = {
+		  d:null,
+		  getData: function(data, callback) { 
+		    var request = document.createTextNode(JSON.stringify(data));
+		    request.addEventListener("ZoterNote-response", function(event) {
+			  request.parentNode.removeChild(request);
 
-					if (callback) {
-						
-						var response = JSON.parse(request.nodeValue);
-						callback(response);
-					}
-				  }, false);
-
-				  document.head.appendChild(request);
-
-				  var event = document.createEvent("HTMLEvents");
-				  event.initEvent("ZoterNote-query", true, false);
-				  request.dispatchEvent(event);
-				},
-
-				callback: function(response) {
-					this.d = response;
-					return true;
-				}
+			  if (callback) {
+				  
+				  var response = JSON.parse(request.nodeValue);
+				  callback(response);
 			  }
-			 //for testing remove this line
-			zoteroData.getData({"ready":true},zoteroData.callback)
+		    }, false);
+
+		    document.head.appendChild(request);
+
+		    var event = document.createEvent("HTMLEvents");
+		    event.initEvent("ZoterNote-query", true, false);
+		    request.dispatchEvent(event);
+		  },
+
+		  callback: function(response) {
+			  this.d = response;
+			  console.log(this.d);
+			  return true;
+		  }
+	    }
+	   //for testing remove this line
+	    zoteroData.getData({"ready":true},zoteroData.callback)
 			
 			
 			
@@ -98,7 +99,8 @@
 		    }
 		    
 		}else{
-		    document.getElementById("info").innerText = "You don't have any data to submit";
+		    
+		    $("#info").text("You don't have any data to submit");
 		}
 
 	    }
