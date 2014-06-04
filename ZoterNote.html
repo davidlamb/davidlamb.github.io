@@ -62,7 +62,8 @@
 		    var session = WL.getSession();
 		    if (session){
 			    console.log("You are already signed in!")
-			    zoteroData.getData({"ready":true},zoteroData.callback)
+			    console.log(session)
+			    //zoteroData.getData({"ready":true},zoteroData.callback)
 		    }else{
 			console.log("Logging In")
 			WL.login({scope:"wl.signin"}).then(
