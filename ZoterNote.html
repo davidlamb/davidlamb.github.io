@@ -15,7 +15,8 @@
 		</div>
         
         <script>
-			  
+	    var oneNoteAddress = "HTTPS://www.onenote.com/api/v1.0/pages";
+	    
 	    var zoteroData = {
 		  d:null,
 		  getData: function(data, callback) { 
@@ -99,8 +100,28 @@
 		if (data) {
 		    for (var i =0;i<data.items.length;i++){
 			console.log(data.items[i]);
+			c_i = data.items[i];
+			submitStr = '<!DOCTYPE html><html><head><title>'+ c_i.title+'</title><body>';
+			submitStr += '<br/><p>' + c_i.citation +'</p>';
+			submitStr += '<br/><p>Abstract:</p><br/><p>' + c_i.abstract +'</p>';
+			submitStr += '<br/><p>Notes:</p>';
+			for (var j =0;i<c_i.notesHTML;j++){
+			    submitStr += c_i.notesHTML[j];
+			}
+			submitStr += '</body></html>'
+			$.ajax({
+			    url: oneNoteAddress+"?sectionName="+encodeURIComponent(data.name),
+			    type: 'post',
+			    data: submitStr,
+			    headers: {"Content-Type":"text/html","Authorization":"Bearer " + session.access_token },
+			    dataType: "html",
+			    success: function(data){
+				console.log(data);
+				$("#info").append(submitStr);
+			    }
+			});
 		    }
-		    
+		    console.log(submitStr);
 		}else{
 		    
 		    $("#info").text("You don't have any data to submit");
