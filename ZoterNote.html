@@ -53,7 +53,7 @@
                 scope: ["wl.signin","office.onenote_create","wl.offline_access"],
                 response_type: "token"
             });
-            //WL.Event.subscribe("auth.login", onLogin);
+            WL.Event.subscribe("auth.login", onLogin);
 	    signInButton = document.getElementById("signin");
 	    signInButton.onclick = signIn;
 	    
@@ -70,6 +70,7 @@
 					console.log("Log in successful");
 					console.log(response);
 					console.log(session);
+					document.getElementById("info").innerText = "Hello, " + response.first_name + " " + response.last_name + "!";
 					//zoteroData.getData({"ready":true},zoteroData.callback);
 				},
 				function(response){
@@ -79,7 +80,29 @@
 	    }
             
 
-
+            function onLogin () {
+		
+		console.log("OnLogin was finally called...");
+                if (!session.error) {
+                    WL.api({
+                        path: "me",
+                        method: "GET"
+                    }).then(
+                        function (response) {
+                            document.getElementById("info").innerText =
+                                "Hello, " + response.first_name + " " + response.last_name + "!";
+                        },
+                        function (responseFailed) {
+                            document.getElementById("info").innerText =
+                                "Error calling API: " + responseFailed.error.message;
+                        }
+                    );
+                }
+                else {
+                    document.getElementById("info").innerText =
+                        "Error signing in: " + session.error_description;
+                }
+            }
         </script>                   
                 
     </body>
