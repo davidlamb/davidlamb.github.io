@@ -53,13 +53,18 @@
                 scope: ["wl.signin","office.onenote_create","wl.offline_access"],
                 response_type: "token"
             });
-            WL.Event.subscribe("auth.login", onLogin);
+            //WL.Event.subscribe("auth.login", onLogin);
+	   
 	    signInButton = document.getElementById("signin");
 	    signInButton.onclick = signIn;
-	    
+	    var session = WL.getSession();
+	    if (session) {
+		document.getElementById("output").innerText = "You are currently logged in...";
+		submitData();
+	    }
 	    function signIn(){
 		    //console.log(WL.getSession());
-		    var session = WL.getSession();
+		    
 		    if (session){
 			    console.log("You are already signed in!")
 			    console.log(session)
@@ -80,6 +85,17 @@
 		    }
 	    }
             
+	    function submitData(){
+		if (zoteroData.d) {
+		    for (var i =0;i<zoteroData.d.length;i++){
+			console.log(zoteroData.d[i]);
+		    }
+		    
+		}else{
+		    document.getElementById("info").innerText = "You don't have any data to submit";
+		}
+
+	    }
 
             function onLogin () {
 		
