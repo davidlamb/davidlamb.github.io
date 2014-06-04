@@ -55,21 +55,21 @@
             });
             //WL.Event.subscribe("auth.login", onLogin);
 	   
-	    signInButton = document.getElementById("signin");
+	    var signInButton = document.getElementById("signin");
 	    signInButton.onclick = signIn;
 	    var session = WL.getSession();
 	    if (session) {
-		document.getElementById("info").innerText = "You are currently logged in...";
+		$("#info").text("You are currently logged in...");
 		submitData();
 	    }else{
-		document.getElementById("info").innerText = "You are not logged in...";
+		$("#info").text("You are currently not logged in...");
 	    }
 	    function signIn(){
 		    //console.log(WL.getSession());
 		    
 		    if (session){
 			    console.log("You are already signed in!")
-			    document.getElementById("info").innerText = "You are currently logged in...";
+			    $("#info").text("You are currently logged in...");
 			    console.log(session)
 			    submitData();
 			    //zoteroData.getData({"ready":true},zoteroData.callback)
@@ -80,13 +80,13 @@
 					console.log("Log in successful");
 					console.log(response);
 					console.log(session);
-					document.getElementById("info").innerText = "Hello, " + response.first_name + " " + response.last_name + "!";
+					$("#info").text("Hello, " + response.first_name + " " + response.last_name + "!");
 					//zoteroData.getData({"ready":true},zoteroData.callback);
 					submitData();
 				},
 				function(response){
 					console.log("Could not connect, status = " + response.status);
-					document.getElementById("info").innerText = "Could not connect, status = " + response.status;
+					$("#info").text("Could not connect, status = " + response.status);
 				});
 		    }
 	    }
