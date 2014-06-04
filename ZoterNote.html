@@ -73,7 +73,7 @@
 			    console.log("You are already signed in!")
 			    $("#info").text("You are currently logged in...");
 			    console.log(session)
-			    submitData();
+			    //submitData();
 			    zoteroData.getData({"ready":true},zoteroData.callback)
 		    }else{
 			console.log("Logging In")
@@ -84,7 +84,7 @@
 					console.log(session);
 					$("#info").text("Hello, " + response.first_name + " " + response.last_name + "!");
 					zoteroData.getData({"ready":true},zoteroData.callback)
-					submitData();
+					//submitData();
 				},
 				function(response){
 					console.log("Could not connect, status = " + response.status);
