@@ -95,10 +95,10 @@
 		    }
 	    }
             
-	    function submitData(data){
+	    function submitData(data,i){
 		console.log("inside submit data")
 		if (data) {
-		    for (var i =0;i<data.items.length;i++){
+		    if (i < data.items.length) {
 			console.log(data.items[i]);
 			c_i = data.items[i];
 			submitStr = '<!DOCTYPE html><html><head><title>'+ c_i.title+'</title></head><body>';
@@ -115,13 +115,15 @@
 			    data: submitStr,
 			    headers: {"Content-Type":"text/html","Authorization":"Bearer " + session.access_token },
 			    dataType: "html",
-			    success: function(data){
-				console.log(data);
-				$("#info").append(submitStr);
+			    success: function(r){
+				console.log(r);
+				submitData(data,i+1)
+				$("#info").prepend(submitStr);
 			    }
 			});
+		    }else{
+			$("#info").preprend("<h3>Complete</h3>");
 		    }
-		    console.log(submitStr);
 		}else{
 		    
 		    $("#info").text("You don't have any data to submit");
