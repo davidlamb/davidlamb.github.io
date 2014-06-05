@@ -116,9 +116,10 @@
 			    headers: {"Content-Type":"text/html","Authorization":"Bearer " + session.access_token },
 			    dataType: "html",
 			    success: function(r){
+				$("#info").prepend(submitStr);
 				console.log(r);
 				submitData(data,i+1)
-				$("#info").prepend(submitStr);
+				
 			    }
 			});
 		    }else{
