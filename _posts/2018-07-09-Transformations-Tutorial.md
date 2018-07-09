@@ -5,6 +5,8 @@ date: 2018-07-09
 ---
 # Transformations in Matplotlib
 
+Files for this tutorial can be found in this repository <a href="https://github.com/davidlamb/Courses/tree/master/Mapping%20with%20Geopandas">Folder</a>
+
 In Matplotlib there are four different coordinate spaces that are available. The most obvious, and most used, is the data coordinate system. This is where your data are being plotted. So if you are plotting a sin curve, your data will be in a coordinate system that likely has the limits 0.0 to 1.0, or a little beyond this.Matplotlib calls this the userland coordinatesystem. It is controlled by the xlim and ylim properties. These may be determined automatically or set by you (the user) through the <code>set_xlim()</code> and <code>set_ylim() </code>functions
 
 The Axes coordinate system refers to the axes space of your plot, or subplot. If you have only one plot, the origin of the coordinate system is the bottom left-hand side (0,0) of your axes. The top right corner is (1.0,1.0). If you have multiple plots or subplots (say, four panels) then each subplot axes has its own origin in the bottom left-hand side at 0.0. You can move outside to the left by supplying negative values, or further to the right by using greater than 1.0 values. Same for the top and the bottom.

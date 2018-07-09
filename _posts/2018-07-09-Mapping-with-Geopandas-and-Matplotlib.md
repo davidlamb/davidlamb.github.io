@@ -5,6 +5,8 @@ date: 2018-07-09
 ---
 # Mapping with Geopandas
 
+Data for this tutorial can be found in the courses repository <a href="https://github.com/davidlamb/Courses/tree/master/Mapping%20with%20Geopandas">Folder</a>
+
 One of the nice features of geopandas is its built-in mapping functionality. This makes it really simple to visualize your data as you manipulate it in the database. It is built ontop of matplotlib, so you can quickly add more functionality to your maps beyond some of the defaults.
 
 There are three datafiles associated with this chapter: ne_10m_admin_1_states_provinces_aus, ne_10m_populated_places_simple_aus, and ne_10m_railroads_aus. One each for the three geometric primitives: points, polylines, and polygons. This way you can see how each behaves while being mapped. The data comes from Natural Earth, and has been selected for all of Australia. Also, and this is important, **they all have the same spatial reference system**: http://spatialreference.org/ref/epsg/gda94-geoscience-australia-lambert/ Australian Geoscience Lambert projection. This is important so the maps will line up properly. You could change the projection using Geopandas, but I'd rather focus primarily on visualizing in this chapter.
