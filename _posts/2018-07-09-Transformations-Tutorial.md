@@ -1,4 +1,8 @@
-
+---
+layout: teaching
+title: "Transformations in Matplotlib"
+date: 2018-07-09
+---
 #Transformations in Matplotlib
 
 In Matplotlib there are four different coordinate spaces that are available. The most obvious, and most used, is the data coordinate system. This is where your data are being plotted. So if you are plotting a sin curve, your data will be in a coordinate system that likely has the limits 0.0 to 1.0, or a little beyond this.Matplotlib calls this the userland coordinatesystem. It is controlled by the xlim and ylim properties. These may be determined automatically or set by you (the user) through the <code>set_xlim()</code> and <code>set_ylim() </code>functions
