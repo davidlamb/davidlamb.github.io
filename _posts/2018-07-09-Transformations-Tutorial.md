@@ -49,7 +49,7 @@ ax.plot(x, y)
 
 
 
-![png](output_9_1.png)
+![png](/assets/images/transformationstutorial/output_9_1.png)
 
 
 <p>Matplotlib automatically selects the bounds of the data coordinates to fit the data. These can be changed by accessing the <code>set_xlim()</code> and <code>set_ylim() </code>functions. Say we want to make sure there is some space in the top and bottom of the graph.</p>
@@ -71,7 +71,7 @@ ax.plot(x, y)
 
 
 
-![png](output_11_1.png)
+![png](/assets/images/transformationstutorial/output_11_1.png)
 
 
 <p>If we want to convert the data coordinates into display coordinates, we can use the <code>ax.transData.transform()</code> function to do this. We can also go backwards and get the data coordinates from display coordinates.</p>
@@ -96,7 +96,7 @@ ax.plot(.5,0.0,'ro') #plot a red point at x=.5 and y=0
 
 
 
-![png](output_13_1.png)
+![png](/assets/images/transformationstutorial/output_13_1.png)
 
 
 <p>For the most part, this point is at the center of our data coordinate system, so we would expect it to be about the center of the display coordinates. Let's apply the transformation to find out.</p>
@@ -146,7 +146,7 @@ ax.text(1.0,1.0,"(1,1)",transform=ax.transAxes,fontsize=12,fontweight='bold',
 
 
 
-![png](output_20_1.png)
+![png](/assets/images/transformationstutorial/output_20_1.png)
 
 
 <p>The code is nearly the same, except at the bottom to pieces of text are being added. The first three arguments are: the x coordinate, y coordinate, and text string. The first piece of text is added at the origin, and the second at the top right-hand corner. The <code>transform</code> argument is added to specify which coordinate system the <i>x</i> and <i>y</i> coordinates are in. In both cases it is set to the axes coordinate system. Two properties for the text (<code>fontsize</code>and<code>fontweight</code>) are added to help distinguish the added text from the axes labels. The horizontal and vertical alignments are set to zero, so the center of the text is placed exactly on the <i>x</i> and <i>y</i> coordinates.</p>
@@ -168,7 +168,7 @@ for i in range(1,5):
 ```
 
 
-![png](output_22_0.png)
+![png](/assets/images/transformationstutorial/output_22_0.png)
 
 
 <p>Another approach may be that we want to highlight a specific region of our plot, but do not know the data coordinates. We could use the transform as above to go between display and data coordinates. We could also plot directly onto our  axes coordinate system. In this case, let's use a circle to call out a portion of our cosine line. First we need to import another class from matplotlib called patches. Patches are like polygons. We'll use a circle patch.<p>
@@ -201,7 +201,7 @@ ax.add_patch(circ)
 
 
 
-![png](output_26_1.png)
+![png](/assets/images/transformationstutorial/output_26_1.png)
 
 
 <p>The circle is added at axes coordinates x=.7 and y=.4. That is .7 units from the left, and .4 units from the bottom. The transform is set to <code>ax.transAxes</code> to make sure we are drawing using the axes coordinates</p>
@@ -239,7 +239,7 @@ ax.add_patch(rect)
 
 
 
-![png](output_30_1.png)
+![png](/assets/images/transformationstutorial/output_30_1.png)
 
 
 <p>The axes coordinates run from 0 to 1. We can specify the <i>y</i> coordinate as zero for the bottom, and the height as 1 to go all the way to the top. If we used data coordinates to figure this we would have to know the ylim to achieve the same effect. Then anytime the ylim changed this would need to be changed to reflect it. It is much easier to use the axes coordinate to fill this space.</p>
@@ -266,7 +266,7 @@ ax.add_patch(rect)
 
 
 
-![png](output_32_1.png)
+![png](/assets/images/transformationstutorial/output_32_1.png)
 
 
 <h3>Figure Transform</h3>
@@ -296,7 +296,7 @@ ax.text(1.0,1.0,"(1,1)",transform=fig.transFigure,fontsize=12,fontweight='bold',
 
 
 
-![png](output_35_1.png)
+![png](/assets/images/transformationstutorial/output_35_1.png)
 
 
 <p>The figure includes the data area, and the axes. In a sense these coordinate systems are nested within each other. You can use transformations to move between them. Let's use <code>tight_layout()</code> to see how this changes the placement</p>
@@ -317,7 +317,7 @@ plt.tight_layout()
 ```
 
 
-![png](output_37_0.png)
+![png](/assets/images/transformationstutorial/output_37_0.png)
 
 
 <p>One feature of matplotlib that often uses figure coordinates is the legend. Often, it is enough to use the default legend position provided through the loc parameter (see the table below). The default location is the upper right.</p>
@@ -358,7 +358,7 @@ plt.legend()
 
 
 
-![png](output_40_1.png)
+![png](/assets/images/transformationstutorial/output_40_1.png)
 
 
 
@@ -380,7 +380,7 @@ plt.legend(loc=3)
 
 
 
-![png](output_41_1.png)
+![png](/assets/images/transformationstutorial/output_41_1.png)
 
 
 <p>When adding a legend, you can specify the <code>bbox_to_anchor</code> argument, the <code>bbox_transform</code> argument, and <code>loc</code> to really place the legend wherever you want. <code>loc</code> is like the alignment point of the text above. The default is the upper right corner of the legend bounding box. <code>bbox_to_anchor</code> is dependent on the transformation. It is the coordinates where the anchor (set by <code>loc</code> ) is going to be placed. <code>bbox_transform</code> tells matplotlib which transformation to apply, or which coordinate system to place the legend using.Confused? Let's visualize it.</p>
@@ -407,7 +407,7 @@ plt.legend(bbox_to_anchor=(1.0, 1.0), bbox_transform=fig.transFigure)
 
 
 
-![png](output_43_1.png)
+![png](/assets/images/transformationstutorial/output_43_1.png)
 
 
 <p>In the above figure the anchor is upper right, and the anchor point is set to 1.0,1.0. The transformation is the figure, and a piece of text is added there as well to show the upper right of the figure coordinate system.</p>
@@ -434,7 +434,7 @@ plt.legend(bbox_to_anchor=(1.0, 1.0), loc=10, bbox_transform=fig.transFigure)
 
 
 
-![png](output_45_1.png)
+![png](/assets/images/transformationstutorial/output_45_1.png)
 
 
 <p>This allows for the placement at a wide range of places. Below we set the legend to outside the axes upper right corner, using the <code>loc</code> arguement set to two, or upper left. That is, the upper left of the <i>legend</i> bounding box.</p>
@@ -462,7 +462,7 @@ plt.legend(bbox_to_anchor=(1.05, 1.0), loc=2, bbox_transform=fig.transFigure)
 
 
 
-![png](output_47_1.png)
+![png](/assets/images/transformationstutorial/output_47_1.png)
 
 
 
@@ -485,7 +485,7 @@ plt.legend(bbox_to_anchor=(1.05, 1.0), loc=2,borderaxespad=0.)
 
 
 
-![png](output_48_1.png)
+![png](/assets/images/transformationstutorial/output_48_1.png)
 
 
 <p>Say we wanted to place this below the bottom x-axis. We know we want to use the axes coordinate system, so we can leave this as default. We also probably want to fill the space at the bottom rather than leave the legend as we have. Now we need to specify four coordinates. We'll stick with the upper left anchor point for the legend box. Change the mode to "expand" to fill the space. Now we add our anchor locations. We'll use negative values to set slightly outside the axes. -.02 places the upper left at -.02 axes x coordinate. -.05 is axes y coordinate. 1.02 is the right side of the axes x coordinate. And the 0 in the 4th spot of the tuple is to stop the legend from going up.<p>
@@ -510,7 +510,7 @@ plt.legend(bbox_to_anchor=(-.02, -.05,1.02,0), loc=2, mode="expand")
 
 
 
-![png](output_50_1.png)
+![png](/assets/images/transformationstutorial/output_50_1.png)
 
 
 <p>Here are some extreme examples to show the effect of each setting on the <code>bbox_to_anchor</code></p>
@@ -535,7 +535,7 @@ plt.legend(bbox_to_anchor=(-.02, -.05,2,0), loc=2, mode="expand")
 
 
 
-![png](output_52_1.png)
+![png](/assets/images/transformationstutorial/output_52_1.png)
 
 
 
@@ -558,7 +558,7 @@ plt.legend(bbox_to_anchor=(-.3, -.3,1,0), loc=2, mode="expand")
 
 
 
-![png](output_53_1.png)
+![png](/assets/images/transformationstutorial/output_53_1.png)
 
 
 
@@ -581,7 +581,7 @@ plt.legend(bbox_to_anchor=(-.025,0,1.05,.5), loc=2, mode="expand")
 
 
 
-![png](output_54_1.png)
+![png](/assets/images/transformationstutorial/output_54_1.png)
 
 
 <p>Transformations is a complicated subject, because there are so many different coordinate systems involved. Hopefully having reviewed these here, you have a better understanding of them</p>
