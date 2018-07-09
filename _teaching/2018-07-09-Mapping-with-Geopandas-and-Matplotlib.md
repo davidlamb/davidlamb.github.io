@@ -1,7 +1,9 @@
 ---
 layout: teaching
 title: "Mapping with Geopandas and Matplotlib"
+date: 2018-07-09
 ---
+
 # Mapping with Geopandas
 
 One of the nice features of geopandas is its built-in mapping functionality. This makes it really simple to visualize your data as you manipulate it in the database. It is built ontop of matplotlib, so you can quickly add more functionality to your maps beyond some of the defaults.
