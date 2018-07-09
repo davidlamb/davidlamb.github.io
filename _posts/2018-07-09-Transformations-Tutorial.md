@@ -1,8 +1,9 @@
 
-<h2>Transformations in Matplotlib</h2>
+#Transformations in Matplotlib
 
-<p>In Matplotlib there are four different coordinate spaces that are available. The most obvious, and most used, is the data coordinate system. This is where your data are being plotted. So if you are plotting a sin curve, your data will be in a coordinate system that likely has the limits 0.0 to 1.0, or a little beyond this.Matplotlib calls this the userland coordinatesystem. It is controlled by the xlim and ylim properties. These may be determined automatically or set by you (the user) through the <code>set_xlim()</code> and <code>set_ylim() </code>functions</p>
-<p>The Axes coordinate system refers to the axes space of your plot, or subplot. If you have only one plot, the origin of the coordinate system is the bottom left-hand side (0,0) of your axes. The top right corner is (1.0,1.0). If you have multiple plots or subplots (say, four panels) then each subplot axes has its own origin in the bottom left-hand side at 0.0. You can move outside to the left by supplying negative values, or further to the right by using greater than 1.0 values. Same for the top and the bottom.</p>
+In Matplotlib there are four different coordinate spaces that are available. The most obvious, and most used, is the data coordinate system. This is where your data are being plotted. So if you are plotting a sin curve, your data will be in a coordinate system that likely has the limits 0.0 to 1.0, or a little beyond this.Matplotlib calls this the userland coordinatesystem. It is controlled by the xlim and ylim properties. These may be determined automatically or set by you (the user) through the <code>set_xlim()</code> and <code>set_ylim() </code>functions
+
+The Axes coordinate system refers to the axes space of your plot, or subplot. If you have only one plot, the origin of the coordinate system is the bottom left-hand side (0,0) of your axes. The top right corner is (1.0,1.0). If you have multiple plots or subplots (say, four panels) then each subplot axes has its own origin in the bottom left-hand side at 0.0. You can move outside to the left by supplying negative values, or further to the right by using greater than 1.0 values. Same for the top and the bottom.
 
 
 <table>
@@ -13,9 +14,9 @@
 <tr><td>display</td><td>None</td></tr>
 </table>
 
-<h3>Some Examples</h3>
+##Some Examples
 
-<p>Some examples may help clarify these two transformations. Let's look at the data coordinate system first. As always you will need to import the <code>matplotlib.pyplot</code> library. We will also use numpy to generate some data for us</p>
+Some examples may help clarify these two transformations. Let's look at the data coordinate system first. As always you will need to import the <code>matplotlib.pyplot</code> library. We will also use numpy to generate some data for us
 
 
 ```python
@@ -24,7 +25,7 @@ import numpy as np
 %matplotlib inline
 ```
 
-<p>Create some data for the <i>x</i> and <i>y</i> axes.
+Create some data for the x and y axes.
 
 
 ```python
