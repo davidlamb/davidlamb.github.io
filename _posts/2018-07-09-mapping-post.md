@@ -1,6 +1,7 @@
 ---
 layout: teaching
 title: "Mapping with Geopandas and Matplotlib"
+date: 2018-07-07
 ---
 # Mapping with Geopandas
 
