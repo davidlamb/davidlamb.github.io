@@ -61,15 +61,15 @@ railroads.plot()
 
 
 
-![png](output_6_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_6_1.png)
 
 
 
-![png](output_6_2.png)
+![png](/assets/images/mappingwithmatplotlib/output_6_2.png)
 
 
 
-![png](output_6_3.png)
+![png](/assets/images/mappingwithmatplotlib/output_6_3.png)
 
 
 That's nice if we want to see each layer individually, but that's not really a *map* is it? We want to explore the *relationship* between the features. We need to seem them all overlaid. To do that, we need to establish a figure first, and an axes object, then pass that to the plot function. Some of matplotlib was covered in a previous chapter, and will not be covered here. If you jumped to this section this may be a little confusing.
@@ -100,7 +100,7 @@ railroads.plot(ax=ax)
 
 
 
-![png](output_10_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_10_1.png)
 
 
 Right now, it is producing a categorical plot. That is, each feature in each data frame gets a unique color. We can change this by setting some of the style settings for a matplotlib plot. For example, we can set the line color and the fill color for the polygons.
@@ -122,7 +122,7 @@ railroads.plot(ax=ax)
 
 
 
-![png](output_12_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_12_1.png)
 
 
 Now we can modify the *marker* or points in terms of shape, color, and size. The <code>'k'</code> is shorthand for black. Many of the standard colors can be set using only a single letter. This saves some time typing, but decreases the legibility of your code (unless  you are familiar with matplotlib).
@@ -145,7 +145,7 @@ railroads.plot(ax=ax, color='k')
 
 
 
-![png](output_14_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_14_1.png)
 
 
 ## Contending with Legends
@@ -177,7 +177,7 @@ admin.plot(column="name",legend=True)
 
 
 
-![png](output_18_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_18_1.png)
 
 
 We would want to use the ax option to get a hold of the legend object so we could place it better. But legends include non-categorical options as well, such as just the point symbol. What to do then? We can use matplotlib's legend handler's to create a mock legend item. This requires using patches, and lines to create a template of what our visualization looks like. First we will import some new objects, and give them a shorter name.
@@ -211,7 +211,7 @@ plt.legend(handles=[admin_patch,populated_line,railroads_line])
 
 
 
-![png](output_22_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_22_1.png)
 
 
 Some explanation of the these functions would be helpful. The <code>Patch</code> function does not require much. It basically mimics what the <code>admin.plot()</code> function contains, and adds a <code>label</code> argument. The <code>Line2D</code> object requires the first two arguments be xdata and ydata. Since we just need place holders for the legend we provide two empty lists. The rest is mimicing what is produced in the previous lines of code. Check out the chapter about matplotlib for more advanced legend placement using transformations.
@@ -264,7 +264,7 @@ plt.legend(handles=[admin_patch,populated_line,railroads_line])
 
 
 
-![png](output_31_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_31_1.png)
 
 
 That certainly reduced the overlapping tick labels. Still, they aren't formatted very nicely. In matplotlib you have control over how these labels look. This can be setup using a custom function that processes the label and returns a string. It requires importing the ticker object.
@@ -318,7 +318,7 @@ plt.legend(handles=[admin_patch,populated_line,railroads_line])
 
 
 
-![png](output_35_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_35_1.png)
 
 
 Now we are back to the problem of overlapping labels along the axes. We can fix this by specifying the interval between major and minor ticks. Or just major ticks in this case. We could do this manually, given we can see the bounds of the plot window and provide a list of numbers. Even better is to let matplotlib figure it out for us using ```ticker.MultipleLocator``` According to the documentation this fucntion performs this task: Set a tick on every integer that is multiple of base in the view interval. In other words, it finds the interval based on the value you pass. We set the intervals for the major ticks using the ```axis.set_major_locator()```. In the above figure we can see that the interval is already at 500,000, so we need to go bigger Setting it to one million works well.
@@ -355,7 +355,7 @@ plt.legend(handles=[admin_patch,populated_line,railroads_line])
 
 
 
-![png](output_37_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_37_1.png)
 
 
 ## North Arrow and Scale Bar
@@ -431,7 +431,7 @@ plt.legend(handles=[admin_patch,populated_line,railroads_line])
 
 
 
-![png](output_40_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_40_1.png)
 
 
 
@@ -466,7 +466,7 @@ scaleBar(0.22222222222222221,.0,500000,ax,ax.transAxes)
 ```
 
 
-![png](output_42_0.png)
+![png](/assets/images/mappingwithmatplotlib/output_42_0.png)
 
 
 
@@ -519,7 +519,7 @@ scaleBar(0.22222222222222221,.1,1000000,ax,ax.transAxes,subdivision=3)
     
 
 
-![png](output_44_1.png)
+![png](/assets/images/mappingwithmatplotlib/output_44_1.png)
 
 
 
@@ -649,7 +649,7 @@ fig.savefig('mapOutput_fin.png', dpi=300, format='png', bbox_extra_artists=addit
 ```
 
 
-![png](output_45_0.png)
+![png](/assets/images/mappingwithmatplotlib/output_45_0.png)
 
 
 
