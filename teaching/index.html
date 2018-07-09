@@ -2,9 +2,9 @@
 layout: default
 title: David S. Lamb's Lessons
 ---
-	<ul class="posts">
+	<ul class="teaching">
 
-	  {% for post in site.teaching %}
-	    <li><span> <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	  {% for teaching in site.teaching %}
+	    <li><span> <a href="{{ teaching.url }}" title="{{ teaching.title }}">{{ teaching.title }}</a></li>
 	  {% endfor %}
 	</ul>
