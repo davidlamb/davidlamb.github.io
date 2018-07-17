@@ -396,7 +396,7 @@ mosaic(df, ['scoredfirst', 'won'],labelizer=labelizer)
 
 
 
-![png](output_15_1.png)
+![png](/assets/images/output_15_1.png)
 
 
 They are basically inverses of each other. The team that scored first and lost is the lower right hand corner. This matches our expectations, in that once you score it is hard to overcome, but not impossible. It would become even more impossible if they also scored second. But as you can see this produces a confusing plot with a number of contingencies.
@@ -421,7 +421,7 @@ mosaic(df, ['scoredfirst', 'won','scoredsecond'],labelizer=labelizer)
 
 
 
-![png](output_17_1.png)
+![png](/assets/images/output_17_1.png)
 
 
 There are very few numeric variables in the dataset, but it is worth reviewing those as well. Below are the histograms for the number of goals and the number of penalties teams receive. Overall, teams tend to receive between 2 and 7 penalties a game. It is much more rare to have teams that have more than 10 goals in a game. The number of goals is also around 2 to 5. Somewhat supporting that the NHL is a low scoring game.
@@ -441,11 +441,11 @@ df.hist('goals')
 
 
 
-![png](output_19_1.png)
+![png](/assets/images/output_19_1.png)
 
 
 
-![png](output_19_2.png)
+![png](/assets/images/output_19_2.png)
 
 
 We can also break this up by whether it was a home game.
@@ -472,7 +472,7 @@ df[df['home']==0].hist('goals',ax=ax2)
 
 
 
-![png](output_21_2.png)
+![png](/assets/images/output_21_2.png)
 
 
 
@@ -498,7 +498,7 @@ df[df['home']==0].hist('penaltycount',ax=ax2)
 
 
 
-![png](output_22_2.png)
+![png](/assets/images/output_22_2.png)
 
 
 
@@ -606,7 +606,7 @@ print df_scnt['count'].mean()
 
 
 
-![png](output_27_2.png)
+![png](/assets/images/output_27_2.png)
 
 
 The histogram shows this follows more of a poisson distribution, so I can use that to see what might be the extreme values, e.g. scorers\assists who tend to have a high number of first score goals. In 2014, the cut off is about 8 goals and or assists.
@@ -940,7 +940,7 @@ df_scnt[df_scnt['count']>=8].head(10)
 
 
 
-![png](output_32_2.png)
+![png](/assets/images/output_32_2.png)
 
 
 Different names come up each year. For 2017-2018 (missing Ovechkin again). Actually, neither team that made the final had a player that was really good at scoring first. That makes me suspect that it is less important during the playoffs, than it is during the regular season.
@@ -1049,7 +1049,7 @@ df_scnt[df_scnt['count']>=8].head(10)
 
 
 
-![png](output_34_2.png)
+![png](/assets/images/output_34_2.png)
 
 
 
